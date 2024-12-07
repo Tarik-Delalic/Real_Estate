@@ -5,7 +5,7 @@ const Header = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const searchFunction = (e) => {
         e.preventDefault();
-        
+        console.log(searchQuery);
         fetch('http://localhost:8080/admin', {
             method: 'POST',
             headers: {
@@ -50,9 +50,9 @@ const Header = () => {
                                         onChange={(e) => { setSearchQuery(e.target.value) }}
                                     ></input>
                                     <div style={{ width: '5px' }}></div>
-                                    <button className="btn btn-outline-success  my-2 my-sm-0"
+                                    <button className="btn btn-outline-primary rounded-5 my-2 my-sm-0"
                                         onClick={searchFunction}
-                                    >Search</button>
+                                    ><i className="fa fa-search"></i></button>
                                 </form>
                             </li>
 
