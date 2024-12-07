@@ -4,6 +4,7 @@ const PORT = 8080;
 const app = express();
 const routes = require('./views/routes');
 app.use(cors());
+app.use(express.json());
 
 
 app.use('', routes);

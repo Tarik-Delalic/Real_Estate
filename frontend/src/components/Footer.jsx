@@ -15,7 +15,7 @@ const Footer = () => {
 
     return (
 
-        <footer className="bg-body-tertiary text-center">
+        <footer className="bg-body-tertiary text-center ">
 
             <div className="container p-4 pb-0">
                 <section className="mb-4">

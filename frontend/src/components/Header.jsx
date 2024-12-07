@@ -5,7 +5,14 @@ const Header = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const searchFunction = (e) => {
         e.preventDefault();
-        console.log(searchQuery);
+        
+        fetch('http://localhost:8080/admin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ query: searchQuery })
+        }).then(response => response.json()).then(data => console.log(data.message))
         setSearchQuery('');
     }
     return (
@@ -21,17 +28,17 @@ const Header = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav w-100">
                             <li className="nav-item">
-                                <NavLink 
-                                to='/' 
-                                className={({isActive})=> isActive ? 'nav-link active' : 'nav-link' }
-                                end
-                                aria-current="page">Offer</NavLink >
+                                <NavLink
+                                    to='/'
+                                    className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+                                    end
+                                    aria-current="page">Offer</NavLink >
                             </li>
                             <li className="nav-item">
-                                <NavLink  
-                                to='/aboutus' 
-                                className={({isActive})=> isActive ? 'nav-link active' : 'nav-link' }
-                                end
+                                <NavLink
+                                    to='/aboutus'
+                                    className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+                                    end
                                 >About us</NavLink >
                             </li>
                             <li className="nav-item ms-auto">
@@ -42,7 +49,7 @@ const Header = () => {
                                         value={searchQuery}
                                         onChange={(e) => { setSearchQuery(e.target.value) }}
                                     ></input>
-                                    <div style={{width: '5px'}}></div>
+                                    <div style={{ width: '5px' }}></div>
                                     <button className="btn btn-outline-success  my-2 my-sm-0"
                                         onClick={searchFunction}
                                     >Search</button>
