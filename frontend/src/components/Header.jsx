@@ -50,7 +50,7 @@ const Header = () => {
                                         onChange={(e) => { setSearchQuery(e.target.value) }}
                                     ></input>
                                     <div style={{ width: '5px' }}></div>
-                                    <button className="btn btn-outline-primary rounded-5 my-2 my-sm-0"
+                                    <button className="btn btn-secondary rounded-5 my-2 my-sm-0"
                                         onClick={searchFunction}
                                     ><i className="fa fa-search"></i></button>
                                 </form>
